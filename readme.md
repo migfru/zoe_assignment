@@ -1,6 +1,6 @@
 # Zoe Financial Full-Stack Developer Test
 
-This project was created using **Laravel 5.1** and **MySQL**.
+This project was created using **Laravel 5.1**, **MySQL** and **_Bootstrap_**.
 
 _Note:_ In order to create the database and the data, you have to run the Laravel migration script.
 
