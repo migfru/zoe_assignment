@@ -31,28 +31,34 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>#</th>
+            <!-- <th>#</th> -->
+            <th>Agent</th>
             <th>Client Name</th>
             <th>Zip Code</th>
-            <th>Agent</th>
-            <th>Distance to Agent</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
+            <!-- <th>Distance to Agent</th> -->
+            <!-- <th>Latitude</th> -->
+            <!-- <th>Longitude</th> -->
         </tr>
         </thead>
         <tbody>
         @foreach( $clients as $client)
         <tr>
-            <td>{{ $client->id }}</td>
-            <td>{{ $client->name }}</td>
-            <td>{{ $client->zip_code }}</td>
+            <!-- <td>{{ $client->id }}</td> -->
             <td>{{ $client->agent->name }}</td>
-            <td>{{ $client->distance }}</td>
+            <td>{{ $client->name }}</td>
+            <td><a href="#" data-toggle="tooltip" title="Latitude:{{ $client->latitude }}, longitude: {{ $client->longitude }}, distance to agent: {{ $client->distance }}">{{ $client->zip_code }}</a></td>
+            <!--<td>{{ $client->distance }}</td>
             <td>{{ $client->latitude }}</td>
-            <td>{{ $client->longitude }}</td>
+            <td>{{ $client->longitude }}</td> -->
         </tr>
         @endforeach
         </tbody>
     </table>
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
 @endsection
