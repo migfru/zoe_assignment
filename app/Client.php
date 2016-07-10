@@ -10,6 +10,11 @@ class Client extends Model
 
     //public $latitude,$longitude,$zip_code, $distance, $agent;
 
+    /**
+     * getLatLong Function: is used to get the latitude and longitude from google maps API, the coordinates are saved to the database for accelerate the next execution
+     * the zip code of the client should be correct
+     *
+     */
     function getLatLong(){
         if(!empty($this->zip_code)||!isEmptyString($this->zip_code)) {
             if (empty($latitude) || empty($longitude)) {
@@ -26,6 +31,9 @@ class Client extends Model
         }
     }
 
+    /**
+     * setAgent Function: is used to determinate which agent is closer for be assign to the client
+    */
     function setAgent($agent1,$agent2){
         $d1=$this->haversineGreatCircleDistance($this->latitude,$this->longitude,$agent1->latitude,$agent1->longitude);
         $d2=$this->haversineGreatCircleDistance($this->latitude,$this->longitude,$agent2->latitude,$agent2->longitude);
@@ -38,7 +46,11 @@ class Client extends Model
         }
     }
 
-    function haversineGreatCircleDistance(
+    /**
+     * haversineGreatCircleDistance Function: is used to determinate the distance between 2 points in a big circle ç
+     * in this case the earth
+    */
+    private function haversineGreatCircleDistance(
         $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
     {
         // convert from degrees to radians

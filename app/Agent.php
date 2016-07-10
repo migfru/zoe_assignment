@@ -9,6 +9,12 @@ class Agent
     public $zip_code;
     public $name;
 
+    /**
+     * getLatLong Function: is used to get the latitude and longitude from google maps API
+     * the zip code of the agent should be correct
+     *
+     */
+    
     function getLatLong(){
         if(!empty($this->zip_code)){
             if(empty($latitude)||empty($longitude)){
