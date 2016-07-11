@@ -14,6 +14,9 @@ class ClientsTest extends TestCase
     {
         //When
         $this->visit('clients')
-            ->see('Michael');
+                ->type('Taylor', 'name')
+                ->check('terms')
+                ->press('MATCH')
+                ->seePageIs('/dashboard');
     }
 }

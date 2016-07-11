@@ -19,7 +19,7 @@ class Client extends Model
         if(!empty($this->zip_code)||!isEmptyString($this->zip_code)) {
             if (empty($latitude) || empty($longitude)) {
                 $zip = $this->zip_code;
-                $url = "http://maps.googleapis.com/maps/api/geocode/json?address=" . $zip . "&sensor=false";
+                $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $zip . "&sensor=false&key=AIzaSyAyfsePTiSMHQqS9vRhy0YKxRBcviozC1k";
                 $details = file_get_contents($url);
                 $result = json_decode($details, true);
                 $lat = $result['results'][0]['geometry']['location']['lat'];
